@@ -50,30 +50,67 @@ class App extends React.Component {
   handleIncreaseQuantity= (product)=>{
       const {products}= this.state;
       const index= products.indexOf(product);
-      products[index].qty+=1;
-      this.setState({
-          products
-          
+      const docRef= this.db.collection('products').doc(products[index].id);
+      docRef.update({
+        qty : products[index].qty  +1
       })
+      .then(()=>
+      {
+        console.log('Updated SuccessFully');
+      })
+      .catch((error)=>
+      {
+        console.log('error', error);
+      })
+      // products[index].qty+=1;
+      // this.setState({
+      //     products
+          
+      // })
   }
   handleDecreaseQuantity= (product)=>{
     const {products}= this.state;
     const index= products.indexOf(product);
+    const docRef= this.db.collection('products').doc(products[index].id);
     if(products[index].qty===0)
     {
         return;
     }
-    products[index].qty-=1;
-    this.setState({
-        products
+    docRef.update({
+      qty : products[index].qty  -1
     })
-}
+    .then(()=>
+    {
+      console.log('Updated SuccessFully');
+    })
+    .catch((error)=>
+    {
+      console.log('error', error);
+    })
+  }
+ 
+//     products[index].qty-=1;
+//     this.setState({
+//         products
+//     })
+// }
 handleDeleteProduct=(id)=>{
-    const{products}=this.state;
-    const items= products.filter((item)=>item.id!==id);
-    this.setState({
-        products : items
-    });
+    //const{products}=this.state;
+    const docRef=this.db.collection('products').doc(id);
+    docRef.delete()
+    .then(()=>
+    {
+      console.log('Deletedd SuccessFully');
+    })
+    .catch((error)=>
+    {
+      console.log('error', error);
+    })
+  
+    // const items= products.filter((item)=>item.id!==id);
+    // this.setState({
+    //     products : items
+    // });
 }
 getCarCount=()=>{
     const {products}= this.state;
