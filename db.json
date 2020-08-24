@@ -1,31 +1,73 @@
 {
-    "posts": [
+  "all-products": [
     {
-    "id": 1,
-    "title": "Post 1"
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
     },
     {
-    "id": 2,
-    "title": "Post 2"
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
     },
     {
-    "id": 3,
-    "title": "Post 3"
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
+    },
+    {
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
+    },
+    {
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
+    },
+    {
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
+    },
+    {
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
+    },
+    {
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
+    },
+    {
+      "title": "Post 1",
+      "price": 123,
+      "qty": 3,
+      "img-src": "https://image.flaticon.com/icons/svg/864/864373.svg"
     }
-    ],
-    "comments": [
+  ],
+  "comments": [
     {
-    "id": 1,
-    "body": "some comment",
-    "postId": 1
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
     },
     {
-    "id": 2,
-    "body": "some comment",
-    "postId": 1
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
     }
-    ],
-    "profile": {
+  ],
+  "profile": {
     "name": "typicode"
-    }
-    }
+  }
+}

@@ -1,7 +1,9 @@
 import React from 'react';
-import './App.css';
-import Cart from './Cart';
+import '../App.css';
+import Cart from '../Cart';
 import Navbar from './Navbar';
+import {AllProducts} from './index';
+import {Route , Switch, BrowserRouter as Router ,Redirect} from 'react-router-dom'
 import * as firebase from 'firebase';
 
 class App extends React.Component {
@@ -151,18 +153,36 @@ addProduct=()=>{
   {
     const {products, loading} =this.state;
   return (
+    <Router>
     <div className="App">
       <Navbar count={this.getCarCount()} />
-      <button onClick={this.addProduct} style={{padding:20, fontSize: 20}}>Add Product</button>
-       <Cart
-       products  ={products}
-       onIncreaseQuantity= {this.handleIncreaseQuantity}
-       onDecreaseQuantity= {this.handleDecreaseQuantity}
-       onDeleteProduct= {this.handleDeleteProduct}
+      <Switch>
+      {/* <button onClick={this.addProduct} style={{padding:20, fontSize: 20}}>Add Product</button> */}
+      <Route
+      exact
+      path='/'
+      component={AllProducts}
       />
+      <Route
+      path='/cart'
+      render={()=>
+      {
+        return (
+          <Cart
+          products  ={products}
+          onIncreaseQuantity= {this.handleIncreaseQuantity}
+          onDecreaseQuantity= {this.handleDecreaseQuantity}
+          onDeleteProduct= {this.handleDeleteProduct}
+         />
+        )
+      }}
+      />
+     
       <div>{loading && <h1>Loading...</h1> } </div>
       <div style={{padding:20 , backgroundColor: '#AB6437', width: 'content-fit' }}>Total : {this.getCartTotal()}</div>
+      </Switch>
     </div>
+    </Router>
   );
 }
 }
