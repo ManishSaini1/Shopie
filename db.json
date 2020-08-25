@@ -1,73 +1,144 @@
 {
-  "all-products": [
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSYRYs2VyQoBUtiXBnZcCzLx-jTJvX3O8o-sftddQIpBp78CLmbXytFR2kT5cEYNr9PqxorpGmD&usqp=CAc"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSYRYs2VyQoBUtiXBnZcCzLx-jTJvX3O8o-sftddQIpBp78CLmbXytFR2kT5cEYNr9PqxorpGmD&usqp=CAc"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSYRYs2VyQoBUtiXBnZcCzLx-jTJvX3O8o-sftddQIpBp78CLmbXytFR2kT5cEYNr9PqxorpGmD&usqp=CAc"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://image.flaticon.com/icons/svg/864/864373.svg"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://image.flaticon.com/icons/svg/864/864373.svg"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://image.flaticon.com/icons/svg/864/864373.svg"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://image.flaticon.com/icons/svg/864/864373.svg"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://image.flaticon.com/icons/svg/864/864373.svg"
-    },
-    {
-      "title": "Post 1",
-      "price": 123,
-      "qty": 3,
-      "img": "https://image.flaticon.com/icons/svg/864/864373.svg"
+    "all-products": [
+      {
+          "id":1,
+        "title": "Washing Machine",
+        "price": 10000,
+        "qty": 1,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSW8_TUlPfL8Kcr2SNAXAgkNIkQHGfW5xJ3sA&usqp=CAU"
+      },
+      {
+        "id":2,
+        "title": "Refrigerator",
+        "price": 10234,
+        "qty": 1,
+        "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSYRYs2VyQoBUtiXBnZcCzLx-jTJvX3O8o-sftddQIpBp78CLmbXytFR2kT5cEYNr9PqxorpGmD&usqp=CAc"
+      },
+      {"id":3,
+        "title": "Cricket Bat",
+        "price": 8000,
+        "qty": 1,
+        "img": "https://www.thecricketsquare.com/wp-content/uploads/2019/01/SG-PLAYERS-EDITION-ENGLISH-WILLOW-CRICKET-BAT-SIZE-SH-1.jpg"
+      },
+      {
+        "id":4,
+        "title": "Shoes",
+        "price": 1245,
+        "qty": 1,
+        "img": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+      },
+      {
+        "id":5,
+        "title": "Adidas",
+        "price": 1234,
+        "qty": 1,
+        "img": "https://www.allroundercricket.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/a/d/adidasshoe06.png"
+      },
+      {
+        "id":5,
+        "title": "Reebok",
+        "price": 9876,
+        "qty": 1,
+        "img": "https://5.imimg.com/data5/HK/KG/GZ/SELLER-17552598/30-500x500.jpeg"
+      },
+      {
+        "id":5,
+        "title": "Medicine",
+        "price": 97,
+        "qty": 1,
+        "img": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+      },
+      {
+        "id":6,
+        "title": "Kids (Toys)",
+        "price": 1246,
+        "qty": 1,
+        "img": "https://5.imimg.com/data5/CV/WI/MY-21694680/battery-operated-kids-toys-motor-bikes-500x500.jpg"
+      },
+      {
+        "id":7,
+        "title": "Toy Car",
+        "price": 7458,
+        "qty": 1,
+        "img": "https://images.jdmagicbox.com/quickquotes/images_main/b07t8hr18n-baybee-grancabrio-baby-ride-on-kids-ride-on-toys-kids-ride-on-push-car-for-children-kids-toy-car-suitable-for-boys-and-amp-girls-orange-170126360-e61ui.jpg"
+      },
+       {
+        "id":8,
+        "title": "Washing Machine",
+        "price": 10000,
+        "qty": 1,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSW8_TUlPfL8Kcr2SNAXAgkNIkQHGfW5xJ3sA&usqp=CAU"
+      },
+      {
+        "id":9,
+        "title": "Refrigerator",
+        "price": 10234,
+        "qty": 1,
+        "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSYRYs2VyQoBUtiXBnZcCzLx-jTJvX3O8o-sftddQIpBp78CLmbXytFR2kT5cEYNr9PqxorpGmD&usqp=CAc"
+      },
+      {
+        "id":10,
+        "title": "Cricket Bat",
+        "price": 8000,
+        "qty": 1,
+        "img": "https://www.thecricketsquare.com/wp-content/uploads/2019/01/SG-PLAYERS-EDITION-ENGLISH-WILLOW-CRICKET-BAT-SIZE-SH-1.jpg"
+      },
+      {
+        "id":11,
+        "title": "Shoes",
+        "price": 1245,
+        "qty": 1,
+        "img": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+      },
+      {
+        "id":12,
+        "title": "Adidas",
+        "price": 1234,
+        "qty": 1,
+        "img": "https://www.allroundercricket.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/a/d/adidasshoe06.png"
+      },
+      {
+        "id":13,
+        "title": "Reebok",
+        "price": 9876,
+        "qty": 1,
+        "img": "https://5.imimg.com/data5/HK/KG/GZ/SELLER-17552598/30-500x500.jpeg"
+      },
+      {
+        "id":14,
+        "title": "Medicine",
+        "price": 97,
+        "qty": 1,
+        "img": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+      },
+      {
+        "id":15,
+        "title": "Kids (Toys)",
+        "price": 1246,
+        "qty": 1,
+        "img": "https://5.imimg.com/data5/CV/WI/MY-21694680/battery-operated-kids-toys-motor-bikes-500x500.jpg"
+      },
+      {
+        "id":16,
+        "title": "Toy Car",
+        "price": 7458,
+        "qty": 1,
+        "img": "https://images.jdmagicbox.com/quickquotes/images_main/b07t8hr18n-baybee-grancabrio-baby-ride-on-kids-ride-on-toys-kids-ride-on-push-car-for-children-kids-toy-car-suitable-for-boys-and-amp-girls-orange-170126360-e61ui.jpg"
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+      },
+      {
+        "id": 2,
+        "body": "some comment",
+        "postId": 1
+      }
+    ],
+    "profile": {
+      "name": "typicode"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
-    {
-      "id": 2,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
   }
-}
