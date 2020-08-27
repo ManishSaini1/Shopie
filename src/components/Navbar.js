@@ -1,13 +1,36 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
+import '../css/navbar.css'
 const Navbar = (props) => {
     return (
-      
+     
+      <div id="nav-container">
     <div style={styles.nav}>
+     
       <div style={styles.cartIconContainer}>
+      <Link to="/cart">
 
         <img style={styles.cartIcon} src=" https://image.flaticon.com/icons/svg/777/777205.svg" alt="cart-icon" />
         <span style={styles.cartCount}>{props.count}</span>
+        </Link>
+      </div>
+    </div>
+    <div id="nav-links">
+    <div id="nav-products">
+        <Link to="/">
+        <button> Products</button>  
+       
+        
+        </Link>
+        </div>
+       
+      <div id="nav-cart">
+      <Link to="/cart">
+        <button> Cart</button>
+       
+        
+      </Link>
+      </div>
       </div>
     </div>
   );

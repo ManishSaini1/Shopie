@@ -1,0 +1,50 @@
+#nav-container
+{
+    position: relative;
+}
+#nav-links
+{
+    display: flex;
+    position: absolute;
+    margin-top: -38px;
+    margin-left: 15px;
+    justify-content: space-between;
+}
+#nav-products 
+{
+    /* margin-top:-50px; */
+    /* position: absolute; */
+        
+
+    /* float: left; */
+}
+#nav-products button{
+    outline: none;
+    width: 10vw;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 3px;
+    background-color: rgba(1, 1, 10, 0.486);
+    font-size: 1.3rem;
+    cursor: pointer;
+
+}
+#nav-cart
+{
+    margin-left: 35px;
+    
+}
+#nav-cart button
+{
+    border: none;
+    outline: none;
+    width: 8vw;
+    padding: 3px;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    background-color: indianred;
+    color: white;
+    cursor: pointer;
+}

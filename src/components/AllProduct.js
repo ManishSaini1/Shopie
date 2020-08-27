@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateCart } from "../actions/cart";
 import { fetchProducts } from "../actions/products";
+import Noty from "noty";
+import "../../node_modules/noty/lib/noty.css";
+import "../../node_modules/noty/lib/themes/mint.css";
 import "../css/allProducts.css";
 class AllProduct extends Component {
   constructor() {
@@ -9,17 +12,23 @@ class AllProduct extends Component {
     this.abortController = new AbortController();
     this.state = {
       items: [],
+      carCount: 0,
     };
   }
 
   async componentDidMount() {
     const products = JSON.parse(localStorage.getItem("cart"));
     let count = 0;
-    products.map((product) => {
-      count += product.qty;
-    });
-    this.props.dispatch(updateCart(count));
-
+    if (products !== null) {
+      products.map((product) => {
+        count += product.qty;
+        return product;
+      });
+      this.props.dispatch(updateCart(count));
+      this.setState({
+        carCount: count,
+      });
+    }
     await this.props.dispatch(fetchProducts(), {
       signal: this.abortController,
     });
@@ -28,7 +37,8 @@ class AllProduct extends Component {
     this.abortController.abort();
   }
   addItemsToCart = (productId) => {
-    console.log("product id id ",productId );
+    let { carCount } = this.state;
+    console.log("product id id ", productId);
     let cartItems = localStorage.getItem("cart");
     let cartAllItems = [];
     if (cartItems == null) {
@@ -37,8 +47,14 @@ class AllProduct extends Component {
     cartAllItems = JSON.parse(localStorage.getItem("cart"));
     let toadd = true;
     cartAllItems.map((item) => {
-      if (item.id == productId.id) {
-        window.alert("Item is Already in Cart");
+      if (item.id === productId.id) {
+        setTimeout(function () {
+          new Noty({
+            text: "Item is already in cart",
+            timeout: 1500,
+            type: "warning",
+          }).show();
+        }, 100);
         toadd = false;
       }
       return item;
@@ -46,13 +62,39 @@ class AllProduct extends Component {
     if (toadd) {
       let newCart = [productId, ...cartAllItems];
       localStorage.setItem("cart", JSON.stringify(newCart));
+      console.log(" i ma in to add function", carCount);
+      this.props.dispatch(updateCart(carCount + 1));
+      this.setState({
+        carCount: carCount + 1,
+      });
+
+      setTimeout(function () {
+        new Noty({
+          text: "Item Added to Cart",
+          timeout: 1500,
+          type: "success",
+        }).show();
+      }, 100);
     }
   };
-  componentDidUpdate(prevProps, currentProps )
-  {
-    console.log("Inside the coponened did update",prevProps);
-    console.log("Inside the coponened did update........",currentProps);
-  }
+  onDeleteProduct = (product) => {
+    let products = JSON.parse(localStorage.getItem("products"));
+    products = products.filter((currentProduct) => {
+      return currentProduct.id !== product;
+    });
+    localStorage.setItem("products", JSON.stringify(products));
+
+    this.setState({
+      items: products,
+    });
+    setTimeout(function () {
+      new Noty({
+        text: "Item Deleted",
+        timeout: 1500,
+        type: "error",
+      }).show();
+    }, 100);
+  };
 
   render() {
     let { products } = this.props;
@@ -73,7 +115,8 @@ class AllProduct extends Component {
             <div className="product-item" key={product.id}>
               <div className="left-block product-image">
                 <img
-                  className="product-image" alt="product"
+                  className="product-image"
+                  alt="product"
                   style={styles.image}
                   src={product.img}
                 />
@@ -135,7 +178,7 @@ class AllProduct extends Component {
                       alt="delete"
                       className="action-icons"
                       src="https://image.flaticon.com/icons/svg/3096/3096687.svg"
-                      // onClick={()=> onDeleteProduct(product.id)}
+                      onClick={() => this.onDeleteProduct(product.id)}
                     />
                     Delete
                   </button>

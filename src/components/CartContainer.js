@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import CartItem from "./CartItem";
 import { updateCart } from "../actions/cart";
 import { connect } from "react-redux";
+import Noty from "noty";
+import "../../node_modules/noty/lib/noty.css";
+import "../../node_modules/noty/lib/themes/mint.css";
 
 class CartContainer extends Component {
   constructor() {
@@ -13,29 +16,24 @@ class CartContainer extends Component {
   }
   componentDidMount() {
     const products = JSON.parse(localStorage.getItem("cart"));
+    console.log("products are in cmd car container*(*(*(*(", products);
+
     let count = 0;
+    if(products===null)
+    {
+      return;
+    }
     products.map((product) => {
       count += product.qty;
+      return product;
     });
     this.props.dispatch(updateCart(count));
-    console.log("products are in cmd car container", products);
-    this.setState({
+        this.setState({
       products: products,
       cartCount: count,
     });
   }
-  componentDidUpdate(prevState, currentState )
-  {
-    // if(prevState!==currentState)
-    // {
-    //   this.setState({
-    //       products: currentState.products,
-    //       carCount: currentState.carCount
-    //   })
-    // }
-    console.log("Inside the coponened did update",prevState);
-    console.log("Inside the coponened did update........",currentState);
-  }
+   
   handleIncreaseQuantity = (productId) => {
     let { cartCount } = this.state;
     let products = JSON.parse(localStorage.getItem("cart"));
@@ -52,6 +50,14 @@ class CartContainer extends Component {
       products: products,
       cartCount: cartCount + 1,
     });
+    setTimeout(function () {
+      new Noty({
+        text: "Quantity Increased by 1",
+        timeout: 1500,
+        type: "info",
+      }).show();
+    }, 100);
+    
   };
   handleDecreaseQuantity = (productId) => {
     let { cartCount } = this.state;
@@ -59,6 +65,13 @@ class CartContainer extends Component {
     products = products.map((product) => {
       if (product.id === productId) {
         if (product.qty > 0) {
+          setTimeout(function () {
+            new Noty({
+              text: "Quantity Decreased by 1",
+              timeout: 1500,
+              type: "error",
+            }).show();
+          }, 100);
           product.qty -= 1;
         }
       }
@@ -76,16 +89,35 @@ class CartContainer extends Component {
   };
   deleteProduct = (product) => {
     // console.log("Product in delete function", product);
+    let {cartCount} = this.state;
+    let count=0;
     let products = JSON.parse(localStorage.getItem("cart"));
     products = products.filter((currentProduct) => {
       // console.log("product id current" , currentProduct.id);
       // console.log("prodcut id", product);
-      return currentProduct.id != product;
+      if(currentProduct.id===product)
+      {
+        console.log(" i m here in delete car fun" , currentProduct.qty);
+        cartCount-=currentProduct.qty;
+      }
+      return currentProduct.id !== product;
     });
+    console.log("before cart Count", cartCount);
+    cartCount-=count;
+    console.log("after cart Count", cartCount);
     localStorage.setItem("cart", JSON.stringify(products));
+   this.props.dispatch(updateCart(cartCount));
     this.setState({
-      products: products,
-    });
+      products :products,
+      cartCount
+    })
+    setTimeout(function () {
+      new Noty({
+        text: "Item deleted from cart",
+        timeout: 1500,
+        type: "error",
+      }).show();
+    }, 100);
   };
   render() {
     const { products } = this.state;
@@ -93,7 +125,7 @@ class CartContainer extends Component {
     console.log("products in render function cart");
     return (
       <div>
-        {products == null || products.length == 0 ? (
+        {products == null || products.length ==git = 0 ? (
           <h1 id="no-item-heading">No items in Cart </h1>
         ) : (
           products.map((product) => {
