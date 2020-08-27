@@ -115,6 +115,7 @@ class CartContainer extends Component {
       new Noty({
         text: "Item deleted from cart",
         timeout: 1500,
+
         type: "error",
       }).show();
     }, 100);
@@ -125,7 +126,7 @@ class CartContainer extends Component {
     console.log("products in render function cart");
     return (
       <div>
-        {products == null || products.length ==git = 0 ? (
+        {products == null || products.length == 0 ? (
           <h1 id="no-item-heading">No items in Cart </h1>
         ) : (
           products.map((product) => {
