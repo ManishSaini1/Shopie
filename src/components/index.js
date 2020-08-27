@@ -1,2 +1,2 @@
-import AllProducts from './AllProduct';
-export {AllProducts}
+import AllProducts from "./AllProduct";
+export { AllProducts, };

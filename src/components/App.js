@@ -1,10 +1,10 @@
 import React from 'react';
 import '../App.css';
-import Cart from '../Cart';
+import Cart from './CartContainer';
 import Navbar from './Navbar';
 import {AllProducts} from './index';
-import {Route , Switch, BrowserRouter as Router ,Redirect} from 'react-router-dom'
-import * as firebase from 'firebase';
+import {Route , Switch, BrowserRouter as Router ,} from 'react-router-dom'
+import { connect } from 'react-redux';
 
 class App extends React.Component {
    constructor()
@@ -14,41 +14,8 @@ class App extends React.Component {
      products :[],
      loading: true
     }
-    this.db=firebase.firestore();
   }
-  componentDidMount()
-  {
-    // firebase
-    // .firestore()
-    // .collection('products')
-    // .get()
-    // .then((snapshot)=>{
-    //   const products= snapshot.docs.map((doc)=>
-    //   {
-    //     const data=doc.data();
-    //     data['id']= doc.id;
-    //     return data;
-    //   });
-    //   this.setState({
-    //     products,
-    //     loading :false
-    //   })
-    // })
-    this.db
-    .collection('products')
-    .onSnapshot((snapshot)=>{
-      const products= snapshot.docs.map((doc)=>
-      {
-        const data=doc.data();
-        data['id']= doc.id;
-        return data;
-      });
-      this.setState({
-        products,
-        loading :false
-      })
-    })
-  }
+  
   handleIncreaseQuantity= (product)=>{
       const {products}= this.state;
       const index= products.indexOf(product);
@@ -115,13 +82,8 @@ handleDeleteProduct=(id)=>{
     // });
 }
 getCarCount=()=>{
-    const {products}= this.state;
-    let count=0;
-    products.forEach((product)=>
-    {
-      count+=product.qty;
-    });
-    return count;
+   
+    return this.props.cart;
 }
 getCartTotal=()=>
 {
@@ -187,4 +149,11 @@ addProduct=()=>{
 }
 }
 
-export default App;
+function mapStateToProps(state)
+{
+  console.log("State is%%%%%%%%%%%%%%%%%%%%%%%%%%", state);
+    return {
+      cart :state.cart
+    }
+}
+export default connect(mapStateToProps)( App);

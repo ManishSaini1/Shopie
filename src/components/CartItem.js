@@ -1,12 +1,13 @@
 import React from 'react';
 
 const CartItem = (props)=> {
-    const {title, price, qty}= props.product;
-    const {product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = props;
+    const {title, price, qty, img, id}= props.product;
+    console.log("in product cart item", props.product.title);
+    const { onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = props;
     return (
       <div className="cart-item">
         <div className="left-block" >
-          <img style={styles.image} src={product.img} alt="prod imag" />
+          <img style={styles.image} src={img} alt="prod imag" />
         </div>
         <div className="right-block">
     <div style={ { fontSize: 25 } }>{title}</div>
@@ -18,20 +19,20 @@ const CartItem = (props)=> {
             alt="plus" 
             className="action-icons" 
             src="https://image.flaticon.com/icons/svg/992/992651.svg"
-            onClick= {() =>onIncreaseQuantity(product)}
+            onClick= {() =>onIncreaseQuantity(id)}
           />
           
             <img 
             alt="minus" 
             className="action-icons" 
             src="https://image.flaticon.com/icons/svg/864/864373.svg"
-             onClick= {()=>onDecreaseQuantity(product)} 
+             onClick= {()=>onDecreaseQuantity(id)} 
             />
             <img 
             alt="delete" 
             className="action-icons" 
             src="https://image.flaticon.com/icons/svg/3096/3096687.svg"
-            onClick={()=> onDeleteProduct(product.id)}
+            onClick={()=> onDeleteProduct(id)}
             />
           </div>
         </div>

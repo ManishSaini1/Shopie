@@ -1,0 +1,40 @@
+.all-products
+{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+        background-color: rgba(128, 128, 128, 0.342);
+    flex-grow: 100;
+    flex-wrap: wrap;
+}
+.product-item
+{
+    display: inline-flex;
+    width: 30%;
+    height: 20%;
+    margin: 20px 10px;
+}
+.right-block
+{
+    margin: 5px 20px;
+}
+.right-block div{
+    margin-top: 7px;
+}
+.edit-button
+{
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background-color: rgba(128, 128, 128, 0.288);
+    color: green;
+}
+.product-image
+{
+  border-radius: 18px;  
+}
+ .action-buttons div
+ {
+     display: block;
+     border: 2px solid palevioletred;
+ }
